@@ -1,0 +1,36 @@
+name: Deploy to AWS
+
+on:
+  push:
+    # I added 'master' just in case your branch is named that
+    branches: [ "main", "master" ]
+
+permissions:
+  id-token: write   # REQUIRED for OIDC handshake
+  contents: read    # REQUIRED to read your code
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          # Your specific Role ARN
+          role-to-assume: arn:aws:iam::300785714114:role/GitHubActions-Terraform-Role
+          aws-region: ap-southeast-2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
