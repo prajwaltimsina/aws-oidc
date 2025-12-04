@@ -122,7 +122,7 @@ resource "aws_instance" "web" {
               EOT
 
               # 3. Create a Landing Page
-              echo "<h1>SECURE CONNECTION ESTABLISHED (HTTPS)</h1>" > /usr/share/nginx/html/index.html
+              echo "<h1>SECURE CONNECTION HAS BEEN ESTABLISHED (HTTPS)</h1>" > /usr/share/nginx/html/index.html
               
               # 4. Start Nginx
               systemctl start nginx
