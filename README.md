@@ -1,6 +1,6 @@
-# Secure DevSecOps AWS Deployment with Terraform & GitHub Actions
+# Securing AWS Access with Terraform, GitHub Actions, and OIDC
 
-This repository demonstrates a **secure, fully automated DevSecOps deployment pipeline** on AWS using **Terraform** and **GitHub Actions**.
+This repository demonstrates a **secure, access** on AWS using **Terraform**, **OIDC** and **GitHub Actions**.
 
 The project provisions cloud infrastructure using **Infrastructure as Code**, enforces **HTTPS-only traffic**, and authenticates to AWS using **OpenID Connect (OIDC)** — eliminating the need for long-lived access keys.
 
